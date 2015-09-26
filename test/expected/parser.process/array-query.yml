@@ -1,0 +1,4 @@
+foos:
+  - value: foo_text1
+  - value: foo_text2
+bar: foo_text2
