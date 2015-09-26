@@ -1,0 +1,5 @@
+# Use http://jsonschema.net/ to generate scheama
+book: !struct
+  _schema: book.json
+  title: Alice's Adventures in Wonderland
+  auothor: Lewis Carroll

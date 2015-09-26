@@ -1,0 +1,3 @@
+foo: this
+bar: "{{ foo }} and that"
+baz: "{{ foo }} and {{ bar }}"

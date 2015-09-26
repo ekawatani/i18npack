@@ -1,0 +1,32 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "mocha": true
+  },
+  "rules": {
+    "strict": 0,
+    "quotes": [2, "single"],
+    "indent": [2, 2],
+    "valid-jsdoc": 2,
+    "default-case": 2,
+    "block-scoped-var": 2,
+    "no-else-return": 2,
+    "no-eq-null": 2,
+    "no-self-compare": 2,
+    "no-throw-literal": 2,
+    "wrap-iife": 2,
+    "no-undefined": 2,
+    "array-bracket-spacing": 2,
+    "comma-style": 2,
+    "computed-property-spacing": 2,
+    "no-inline-comments": 2,
+    "no-lonely-if": 2,
+    "no-multiple-empty-lines": 2,
+    "no-nested-ternary": 2,
+    "object-curly-spacing": [2, "always"],
+    "operator-linebreak": [2, "after"],
+    "space-before-function-paren": [2, "never"],
+    "space-in-parens": 2
+  }
+}

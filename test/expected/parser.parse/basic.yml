@@ -1,0 +1,6 @@
+foo: foo_text
+bar: bar_text
+baz:
+  - arrayVal1
+  - arrayVal2
+  - arrayVal3

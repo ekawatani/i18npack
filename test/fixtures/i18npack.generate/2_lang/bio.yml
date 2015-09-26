@@ -1,0 +1,7 @@
+age: 20
+born_in: !t
+  - Japan
+  - Japon
+hobby: !t
+  - Music
+  - Musique

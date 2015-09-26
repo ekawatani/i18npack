@@ -1,0 +1,6 @@
+book: !struct
+  _schema: book.json
+  title: !t
+    - Alice's Adventures in Wonderland
+    - Les Aventures d'Alice au pays des merveilles
+  auothor: Lewis Carroll

@@ -1,0 +1,10 @@
+{
+  "data1": {
+    "foo": "fr_foo"
+  },
+  "data2": {
+    "bar": "fr_foo",
+    "baz": "fr_baz",
+    "qux": "fr_foo and fr_baz"
+  }
+}

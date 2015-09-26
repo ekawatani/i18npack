@@ -1,0 +1,3 @@
+book: !struct
+  title: Alice's Adventures in Wonderland
+  auothor: Lewis Carroll

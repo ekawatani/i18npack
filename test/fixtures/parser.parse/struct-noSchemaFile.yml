@@ -1,0 +1,4 @@
+book: !struct
+  _schema: no-such-file.json
+  title: Alice's Adventures in Wonderland
+  auothor: Lewis Carroll

@@ -1,0 +1,19 @@
+{
+  "bio": {
+    "age": 20,
+    "born_in": "Japan",
+    "hobby": "Music"
+  },
+  "pages": {
+    "index": {
+      "pageTitle": "My Website",
+      "description": "Welcome to my website.",
+      "url": "http://www.mywebsite.com"
+    },
+    "about": {
+      "pageTitle": "About Me",
+      "description": "I am John Smith.",
+      "url": "http://www.mywebsite.com/about"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+foo: !t
+  - en: en_foo
+  - fr: fr_foo

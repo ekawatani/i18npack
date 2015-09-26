@@ -1,0 +1,4 @@
+book: !struct
+  _schema: book.json
+  title: Alice's Adventures in Wonderland
+  published: 1865

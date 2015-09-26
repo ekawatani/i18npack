@@ -1,0 +1,4 @@
+foo: !t
+  - bar: bar_text
+    baz: baz_text
+  - fr_foo

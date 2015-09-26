@@ -1,0 +1,5 @@
+bar: "{{ data1.foo }}"
+baz: !t
+  - en_baz
+  - fr_baz
+qux: "{{ data1.foo }} and {{ data2.baz }}"
