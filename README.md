@@ -112,11 +112,33 @@ See examples above.
 
 Takes a specified JSON schema and validates a block against the schema using [tv4](https://github.com/geraintluff/tv4). To specifiy a schema, use `_schema` in the source and specify the name of the file containing it. If you are unfamilier with JSON schema Draft v4, try using [http://jsonschema.net](http://jsonschema.net) to generate it.
 
+book.yaml
 ```yaml
 book: !struct
   _schema: book.json
   title: Alice's Adventures in Wonderland
   auothor: Lewis Carroll
+```
+
+#### !extend
+
+Reads a YAML file and [_.extend](https://lodash.com/docs#assign)s the current block with the file content.
+
+```yaml
+book: !extend
+  _base: book.yaml
+  published: 1865
+```
+
+Result:
+```json
+{
+  "book": {
+    "title": "Alice's Adventures in Wonderland",
+    "auothor": "Lewis Carroll",
+    "published": 1856
+  }
+}
 ```
 
 book.json

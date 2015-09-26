@@ -244,7 +244,6 @@ describe('parser', function() {
 
     it('!struct: If no schema tag is found, error should be thrown', function() {
       var data = testutil.loadFile('struct-noSchemaTag.yml', loadConfig);
-      parserOptions.strict = true;
       var parser = new Parser(parserOptions);
 
       throwTest(parser, data, 'en', function(err) {
@@ -254,7 +253,6 @@ describe('parser', function() {
 
     it('!struct: If no schema file is found, error should be thrown', function() {
       var data = testutil.loadFile('struct-noSchemaFile.yml', loadConfig);
-      parserOptions.strict = true;
       var parser = new Parser(parserOptions);
 
       throwTest(parser, data, 'en', function(err) {
@@ -264,7 +262,6 @@ describe('parser', function() {
 
     it('!struct: If source is invalid, error should be thrown', function() {
       var data = testutil.loadFile('struct-invalidSource.yml', loadConfig);
-      parserOptions.strict = true;
       var parser = new Parser(parserOptions);
 
       throwTest(parser, data, 'en', function(err) {
@@ -283,6 +280,24 @@ describe('parser', function() {
       var parser = new Parser(parserOptions);
 
       deepEqualTest(parser, data, filename);
+    });
+
+    it('!extend: Basic', function() {
+      var filename = 'extend.yml';
+      var data = testutil.loadFile(filename, loadConfig);
+
+      var parser = new Parser(parserOptions);
+
+      deepEqualTest(parser, data, filename);
+    });
+
+    it('!extend: If no base tag is found, error should be thrown', function() {
+      var data = testutil.loadFile('extend-noBaseTag.yml', loadConfig);
+      var parser = new Parser(parserOptions);
+
+      throwTest(parser, data, 'en', function(err) {
+        return err instanceof SyntaxError && /_base/.test(err);
+      });
     });
   });
 

@@ -1,0 +1,4 @@
+test: !extend
+  foo: override_foo_text
+  one: text1
+  two: text2
