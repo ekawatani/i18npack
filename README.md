@@ -120,6 +120,26 @@ book: !struct
   auothor: Lewis Carroll
 ```
 
+book.json
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "auothor": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "auothor"
+  ]
+}
+```
+
 #### !extend
 
 Reads a YAML file and [_.extend](https://lodash.com/docs#assign)s the current block with the file content.
@@ -138,26 +158,6 @@ Result:
     "auothor": "Lewis Carroll",
     "published": 1856
   }
-}
-```
-
-book.json
-```json
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "title": {
-      "type": "string"
-    },
-    "auothor": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "title",
-    "auothor"
-  ]
 }
 ```
 
