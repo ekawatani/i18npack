@@ -372,7 +372,7 @@ describe('parser', function() {
       deepEqualTest(parser, 'custom-delimiter.yml');
     });
 
-    it.only('arrayquery', function() {
+    it('arrayquery', function() {
       var parser = new Parser(parserOptions);
       deepEqualTest(parser, 'array-query.yml');
     });
