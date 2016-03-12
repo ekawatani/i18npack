@@ -15,5 +15,6 @@
       "description": "Je suis John Smith.",
       "url": "http://www.mywebsite.com/about"
     }
-  }
+  },
+  "items": ["Pomme", "Banane", "Orange"]
 }
