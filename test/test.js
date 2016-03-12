@@ -231,6 +231,15 @@ describe('parser', function() {
       deepEqualTest(parser, data, filename);
     });
 
+    it('!struct: List of structs', function() {
+      var filename = 'struct-list.yml';
+      var data = testutil.loadFile(filename, loadConfig);
+
+      var parser = new Parser(parserOptions);
+
+      deepEqualTest(parser, data, filename);
+    });
+
     it('!struct: Multiple languages', function() {
       var filename = 'struct-multiLangs.yml';
       var data = testutil.loadFile(filename, loadConfig);

@@ -1,0 +1,9 @@
+- !struct
+  _schema: book.json
+  title: Alice's Adventures in Wonderland
+  auothor: Lewis Carroll
+
+- !struct
+  _schema: book.json
+  title: The Adventures of Tom Sawyer
+  auothor: Mark Twain
