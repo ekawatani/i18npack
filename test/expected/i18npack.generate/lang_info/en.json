@@ -1,0 +1,6 @@
+{
+  "lang": "foo",
+  "langs": {
+    "foo": "en_foo"
+  }
+}

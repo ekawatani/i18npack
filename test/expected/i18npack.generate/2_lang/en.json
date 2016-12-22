@@ -16,5 +16,7 @@
       "url": "http://www.mywebsite.com/about"
     }
   },
-  "items": ["Apple", "Banana", "Orange"]
+  "items": ["Apple", "Banana", "Orange"],
+  "lang": "en",
+  "langs": ["en", "fr"]
 }

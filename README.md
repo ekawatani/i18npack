@@ -65,7 +65,9 @@ en.json
       "pageTitle": "My Website",
       "url": "http://www.mywebsite.com"
     }
-  }
+  },
+  "lang": "en",
+  "langs": ["en", "fr"]
 }
 ```
 
@@ -81,9 +83,14 @@ fr.json
       "pageTitle": "Mon site web",
       "url": "http://www.mywebsite.com"
     }
-  }
+  },
+  "lang": "fr",
+  "langs": ["en", "fr"]
 }
 ```
+
+Note that the `lang` and `langs` are added automatically, but if these
+placeholders are already taken, then they are not overwritten.
 
 ### Language Keys
 

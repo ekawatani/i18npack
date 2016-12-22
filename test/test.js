@@ -65,6 +65,10 @@ describe('i18npack', function() {
       deepEqualTest('cross_file_refs');
     });
 
+    it('Language info is not appended if placeholder is taken', function() {
+      deepEqualTest('lang_info');
+    });
+
     it('Supports custom output file extension', function() {
       var testDirName = testutil.buildTestDirPath('1_lang', loadConfig);
 
