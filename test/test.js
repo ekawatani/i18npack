@@ -73,6 +73,10 @@ describe('i18npack', function() {
       deepEqualTest('empty');
     });
 
+    it('Missing langugage keys are not included', function() {
+      deepEqualTest('missing-keys');
+    });
+
     it('Supports custom output file extension', function() {
       var testDirName = testutil.buildTestDirPath('1_lang', loadConfig);
 
@@ -195,6 +199,16 @@ describe('parser', function() {
       });
     });
 
+    it('!t: When using languages keys, all translations must be keyed.', function() {
+      var data = testutil.loadFile('t-invalidStructure-key.yml', loadConfig);
+      var parser = new Parser(parserOptions);
+
+      throwTest(parser, data, 'fr', function(err) {
+        return err instanceof SyntaxError &&
+          /Invalid object structure/.test(err);
+      });
+    });
+
     it('!t: Not enough translations should throw when strict', function() {
       var data = testutil.loadFile('t-notEnough.yml', loadConfig);
       parserOptions.strict = true;
@@ -221,6 +235,17 @@ describe('parser', function() {
 
     it('!t: Supports language keys', function() {
       var filename = 't-langKey.yml';
+      var data = testutil.loadFile(filename, loadConfig);
+
+      var parser = new Parser(parserOptions);
+
+      languages.forEach(function(lang) {
+        deepEqualTest(parser, data, filename, lang);
+      });
+    });
+
+    it('!t: Supports language keys in any orders', function() {
+      var filename = 't-langKey-order.yml';
       var data = testutil.loadFile(filename, loadConfig);
 
       var parser = new Parser(parserOptions);
@@ -405,12 +430,12 @@ describe('parser', function() {
       deepEqualTest(parser, 'array-query.yml');
     });
 
-    it('!t Empty translations are removed.', function() {
+    it('Empty translations are removed.', function() {
       var parser = new Parser(parserOptions);
       deepEqualTest(parser, 't-empty.yml');
     });
 
-    it('!t Empty translations are not removed when allowEmptyTranslations is true', function() {
+    it('Empty translations are not removed when allowEmptyTranslations is true', function() {
       parserOptions.allowEmptyTranslations = true;
       var parser = new Parser(parserOptions);
       deepEqualTest(parser, 't-allow-empty.yml');

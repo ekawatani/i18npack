@@ -89,13 +89,11 @@ fr.json
 }
 ```
 
-Note that the `__lang__` and `__langs__` are added automatically, but if these
-placeholders are already taken, then they are not overwritten.
+Note that the `__lang__` and `__langs__` are added automatically, but if these placeholders are already taken, then they are not overwritten.
 
 ### Language Keys
 
-If there are many languages, it may be convenient to prefix each translation
-by a language code. These codes need to be the same ones specified in `options`.
+If there are many languages, it may be convenient to prefix each translation by a language code. These codes need to be the same ones specified in `options`. Also, the order is not important, but it is not possible to key only some translations.
 
 ```yaml
 greetingText: !t
@@ -111,7 +109,7 @@ i18npack uses several built-in cusyom YAML types to help you organize strings be
 
 #### !t
 
-Takes a list of scalars and selects one that corresponds to the current language being generated.
+Takes a list of scalars and selects one that corresponds to the current language being generated. The order of the items in the list determine the language, and it corresponds to the order defined in the `languages` option.
 
 See examples above.
 

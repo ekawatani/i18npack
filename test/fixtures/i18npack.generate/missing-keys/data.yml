@@ -1,0 +1,7 @@
+foo: !t
+  - fr: fr_foo
+  - en: en_foo
+bar: !t
+  - fr: fr_bar
+baz: !t
+  - en: en_baz

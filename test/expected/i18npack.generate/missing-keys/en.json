@@ -1,0 +1,8 @@
+{
+  "data": {
+    "foo": "en_foo",
+    "baz": "en_baz"
+  },
+  "__lang__": "en",
+  "__langs__": ["en", "fr"]
+}
