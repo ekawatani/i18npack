@@ -1,10 +1,10 @@
 {
   "name": "i18npack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Eigo Kawatani"
   },
-  "description": "Packs multiple i18n files into a single JSON file.",
+  "description": "Keeps multiple i18n files in a single YAML file.",
   "homepage": "https://github.com/ekawatani/i18npack",
   "repository": {
     "type": "git",
