@@ -214,7 +214,8 @@ Result:
 
 ### Using Templates
 
-It is possible to reference a value from any source files so you don't need to repeat the same values in many places. [JSON Query](https://github.com/mmckegg/json-query) is supported in i18npack to make this possible. To use it, **enclose the query in the `{{ }}` delimiter**:
+It is possible to reference a value from any source files so you don't need to repeat the same values in many places. [JSON Query](https://github.com/mmckegg/json-query) is supported in i18npack to make this possible. To use it, enclose the query in the `{{ }}` delimiter, and
+**wrap it inside double quotes**:
 
 bio.yaml
 ```yaml
