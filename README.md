@@ -66,8 +66,8 @@ en.json
       "url": "http://www.mywebsite.com"
     }
   },
-  "lang": "en",
-  "langs": ["en", "fr"]
+  "__lang__": "en",
+  "__langs__": ["en", "fr"]
 }
 ```
 
@@ -84,12 +84,12 @@ fr.json
       "url": "http://www.mywebsite.com"
     }
   },
-  "lang": "fr",
-  "langs": ["en", "fr"]
+  "__lang__": "fr",
+  "__langs__": ["en", "fr"]
 }
 ```
 
-Note that the `lang` and `langs` are added automatically, but if these
+Note that the `__lang__` and `__langs__` are added automatically, but if these
 placeholders are already taken, then they are not overwritten.
 
 ### Language Keys
@@ -214,7 +214,7 @@ Result:
 
 ### Using Templates
 
-It is possible to reference a value from any source files so you don't need to repeat the same values in many places. [JSON Query](https://github.com/mmckegg/json-query) is supported in i18npack to make this possible. To use it, enclose the query in the `{{ }}` delimiter:
+It is possible to reference a value from any source files so you don't need to repeat the same values in many places. [JSON Query](https://github.com/mmckegg/json-query) is supported in i18npack to make this possible. To use it, **enclose the query in the `{{ }}` delimiter**:
 
 bio.yaml
 ```yaml
@@ -238,6 +238,10 @@ pages:
   index:
     url: "http://www.mywebsite.com"
 ```
+
+### Handling Empty Strings
+
+By default, empty strings are not included in the output. To change this behavior, use the `allowEmptyTranslations` option.
 
 ## Options
 
@@ -281,7 +285,13 @@ An object of key-value pairs containing custom YAML types. See [js-yaml](https:/
 Type: `boolean`
 Default: `false`
 
-If true, an error is thrown if all translations are not provided. An empty string is inserted for missing translations, otherwise.
+If true, an error is thrown if the provided translations does not match the supported languages.
+
+### allowEmptyTranslations
+Type: `boolean`
+Default: `false`
+
+If true, empty translations are included in the output.
 
 ### ext
 Type: `string`

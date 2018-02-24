@@ -7,6 +7,6 @@
     "baz": "en_baz",
     "qux": "en_foo and en_baz"
   },
-  "lang": "en",
-  "langs": ["en", "fr"]
+  "__lang__": "en",
+  "__langs__": ["en", "fr"]
 }

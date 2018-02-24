@@ -1,6 +1,6 @@
 {
   "name": "i18npack",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "author": {
     "name": "Eigo Kawatani"
   },
@@ -27,7 +27,7 @@
     "mocha": "5.0.1"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 6.13.0"
   },
   "scripts": {
     "test": "mocha"

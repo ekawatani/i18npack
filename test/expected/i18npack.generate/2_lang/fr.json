@@ -17,6 +17,6 @@
     }
   },
   "items": ["Pomme", "Banane", "Orange"],
-  "lang": "fr",
-  "langs": ["en", "fr"]
+  "__lang__": "fr",
+  "__langs__": ["en", "fr"]
 }

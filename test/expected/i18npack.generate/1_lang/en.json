@@ -17,6 +17,6 @@
     }
   },
   "items": ["Apple", "Banana", "Orange"],
-  "lang": "en",
-  "langs": ["en"]
+  "__lang__": "en",
+  "__langs__": ["en"]
 }

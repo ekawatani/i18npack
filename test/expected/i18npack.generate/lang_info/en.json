@@ -1,6 +1,6 @@
 {
-  "lang": "foo",
-  "langs": {
+  "__lang__": "foo",
+  "__langs__": {
     "foo": "en_foo"
   }
 }

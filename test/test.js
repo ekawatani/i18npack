@@ -69,6 +69,10 @@ describe('i18npack', function() {
       deepEqualTest('lang_info');
     });
 
+    it('Empty translations are not included', function() {
+      deepEqualTest('empty');
+    });
+
     it('Supports custom output file extension', function() {
       var testDirName = testutil.buildTestDirPath('1_lang', loadConfig);
 
@@ -161,10 +165,9 @@ describe('parser', function() {
       });
     });
 
-    it('!t: Empty value is allowed', function() {
-      var filename = 't-empty.yml';
+    it('!t: Not enough translations should not throw', function() {
+      var filename = 't-notEnough.yml';
       var data = testutil.loadFile(filename, loadConfig);
-
       var parser = new Parser(parserOptions);
 
       languages.forEach(function(lang) {
@@ -172,14 +175,13 @@ describe('parser', function() {
       });
     });
 
-    it('!t: Not enough translations should throw', function() {
-      var data = testutil.loadFile('t-notEnough.yml', loadConfig);
+    it('!t: Too many translations should not throw', function() {
+      var filename = 't-tooMany.yml';
+      var data = testutil.loadFile(filename, loadConfig);
       var parser = new Parser(parserOptions);
 
       languages.forEach(function(lang) {
-        throwTest(parser, data, lang, function(err) {
-          return err instanceof SyntaxError && /Not enough/.test(err);
-        });
+        deepEqualTest(parser, data, filename, lang);
       });
     });
 
@@ -190,6 +192,18 @@ describe('parser', function() {
       throwTest(parser, data, 'en', function(err) {
         return err instanceof SyntaxError &&
           /Invalid object structure/.test(err);
+      });
+    });
+
+    it('!t: Not enough translations should throw when strict', function() {
+      var data = testutil.loadFile('t-notEnough.yml', loadConfig);
+      parserOptions.strict = true;
+      var parser = new Parser(parserOptions);
+
+      languages.forEach(function(lang) {
+        throwTest(parser, data, lang, function(err) {
+          return err instanceof SyntaxError && /Not enough/.test(err);
+        });
       });
     });
 
@@ -205,17 +219,18 @@ describe('parser', function() {
       });
     });
 
-    it('!t: Empty value is not allowed when strict', function() {
-      var data = testutil.loadFile('t-empty.yml', loadConfig);
-      parserOptions.strict = true;
+    it('!t: Supports language keys', function() {
+      var filename = 't-langKey.yml';
+      var data = testutil.loadFile(filename, loadConfig);
+
       var parser = new Parser(parserOptions);
 
-      throwTest(parser, data, 'fr', function(err) {
-        return err instanceof SyntaxError && /Empty/.test(err);
+      languages.forEach(function(lang) {
+        deepEqualTest(parser, data, filename, lang);
       });
     });
 
-    it('!t: Supports language keys', function() {
+    it('!t: Unsupported language keys should throw', function() {
       var filename = 't-langKey.yml';
       var data = testutil.loadFile(filename, loadConfig);
 
@@ -388,6 +403,17 @@ describe('parser', function() {
     it('arrayquery', function() {
       var parser = new Parser(parserOptions);
       deepEqualTest(parser, 'array-query.yml');
+    });
+
+    it('!t Empty translations are removed.', function() {
+      var parser = new Parser(parserOptions);
+      deepEqualTest(parser, 't-empty.yml');
+    });
+
+    it('!t Empty translations are not removed when allowEmptyTranslations is true', function() {
+      parserOptions.allowEmptyTranslations = true;
+      var parser = new Parser(parserOptions);
+      deepEqualTest(parser, 't-allow-empty.yml');
     });
   });
 });
