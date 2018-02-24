@@ -1,5 +1,5 @@
 # i18npack
-Packs multiple i18n files into a single JSON file.
+Keeps multiple i18n files in a single YAML file.
 
 Most tools that work with i18n data expect translations to be separated by language. i18npack allows you to keep translations for all languages in the same file so you can glance at all translations without switching to another file. It's based on [js-yaml](https://github.com/nodeca/js-yaml) and thus only supports YAML files as source.
 
