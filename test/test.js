@@ -77,6 +77,10 @@ describe('i18npack', function() {
       deepEqualTest('missing-keys');
     });
 
+    it('Templates work in transaled strings', function() {
+      deepEqualTest('template-and-translate');
+    });
+
     it('Supports custom output file extension', function() {
       var testDirName = testutil.buildTestDirPath('1_lang', loadConfig);
 

@@ -1,0 +1,13 @@
+{
+  "data": {
+    "foo": {
+      "bar": "en_foo"
+    },
+    "foo2": {
+      "bar2": "en_foo2.bar2 | en_foo"
+    },
+    "foo3": {}
+  },
+  "__lang__": "en",
+  "__langs__": ["en", "fr"]
+}

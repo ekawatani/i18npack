@@ -1,0 +1,11 @@
+foo:
+  bar: !t
+    - en: en_foo
+    - fr: fr_foo
+foo2:
+  bar2: !t
+    - en: "en_foo2.bar2 | {{ data.foo.bar }}"
+    - fr: "fr_foo2.bar2 | {{ data.foo.bar }}"
+foo3:
+  bar3: !t
+    - fr: "fr_foo3.bar3 | {{ data.foo.bar }}"

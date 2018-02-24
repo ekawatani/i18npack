@@ -1,0 +1,15 @@
+{
+  "data": {
+    "foo": {
+      "bar": "fr_foo"
+    },
+    "foo2": {
+      "bar2": "fr_foo2.bar2 | fr_foo"
+    },
+    "foo3": {
+      "bar3":  "fr_foo3.bar3 | fr_foo"
+    }
+  },
+  "__lang__": "fr",
+  "__langs__": ["en", "fr"]
+}
