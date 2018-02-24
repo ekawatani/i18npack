@@ -115,7 +115,7 @@ See examples above.
 
 #### !struct
 
-Takes a specified JSON schema and validates a block against the schema using [tv4](https://github.com/geraintluff/tv4). To specifiy a schema, use `_schema` in the source and specify the name of the file containing it. If you are unfamilier with JSON schema Draft v4, try using [http://jsonschema.net](http://jsonschema.net) to generate it.
+Takes a specified JSON schema and validates a block against the Draft v7 schema using [ajv](https://github.com/epoberezkin/ajv). To specifiy a schema, use `_schema` in the source and specify the name of the file containing it. Use `jsonValidatorOptions` to pass options to the validator (See their documentation for available options). If you are unfamilier with JSON schema Draft v7, try using [http://jsonschema.net](http://jsonschema.net) to generate it.
 
 book.yaml
 ```yaml
@@ -128,7 +128,7 @@ book: !struct
 book.json
 ```json
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "title": {
@@ -267,6 +267,12 @@ Type: `string`
 Default: `'.'`
 
 The directory containing schemas for source files.
+
+### jsonValidatorOptions
+Type: `object`
+Default: `{}`
+
+The options passed to the JSON validator.
 
 ### delimiter
 Type: `RegExp` object

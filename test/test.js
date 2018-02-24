@@ -321,9 +321,7 @@ describe('parser', function() {
       var data = testutil.loadFile('struct-invalidSource.yml', loadConfig);
       var parser = new Parser(parserOptions);
 
-      throwTest(parser, data, 'en', function(err) {
-        return /Missing required property/.test(err);
-      });
+      throwTest(parser, data, 'en');
     });
 
     it('Supports custom YAML types', function() {
