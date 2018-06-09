@@ -272,7 +272,7 @@ The directory containing schemas for source files.
 Type: `boolean`
 Default: `true`
 
-If true, the __lang__ and __langs__ properties will be added to the output files.
+If true, the `__lang__` and `__langs__` properties will be added to the output files.
 
 ### jsonValidatorOptions
 Type: `object`
