@@ -268,6 +268,12 @@ Default: `'.'`
 
 The directory containing schemas for source files.
 
+### includeLangDetails
+Type: `boolean`
+Default: `true`
+
+If true, the __lang__ and __langs__ properties will be added to the output files.
+
 ### jsonValidatorOptions
 Type: `object`
 Default: `{}`
