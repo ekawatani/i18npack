@@ -16,15 +16,15 @@
   "main": "./lib/index.js",
   "dependencies": {
     "ajv": "^6.1.1",
-    "glob": "7.1.2",
-    "js-yaml": "3.3.1",
+    "glob": "7.1.4",
+    "js-yaml": "3.13.1",
     "json-query": "2.2.2",
-    "lodash": "4.17.5",
+    "lodash": "4.17.11",
     "mkdirp": "0.5.1",
     "traverse": "0.6.6"
   },
   "devDependencies": {
-    "mocha": "5.0.1"
+    "mocha": "6.1.4"
   },
   "engines": {
     "node": ">= 6.13.0"
