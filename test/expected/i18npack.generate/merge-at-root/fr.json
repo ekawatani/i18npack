@@ -1,0 +1,9 @@
+{
+  "foo": "abc",
+  "bar": "def",
+  "__lang__": "fr",
+  "__langs__": [
+    "en",
+    "fr"
+  ]
+}

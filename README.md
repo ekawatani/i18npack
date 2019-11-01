@@ -89,7 +89,7 @@ fr.json
 }
 ```
 
-Note that the `__lang__` and `__langs__` are added automatically, but if these placeholders are already taken, then they are not overwritten.
+Note that the `__lang__` and `__langs__` are added automatically, but if these placeholders are already taken, then they are not overwritten. Also, you can choose to not include them by default by setting `includeLangDetails` in the options to false.
 
 ### Language Keys
 
@@ -309,3 +309,9 @@ Type: `string`
 Default: `'.json'`
 
 The file extension of output files.
+
+### mergeFilesAtRoot
+Type: `boolean`
+Default: `false`
+
+If true, the output of each file will be merged at the root. Otherwise, each file is namespaced by its file name. Note that if there are keys with the same name coming from multiple files, an error will be thrown.

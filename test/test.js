@@ -30,6 +30,8 @@ describe('i18npack', function() {
         languages: languages,
         dest: '.tmp/test'
       };
+
+      i18npack.reset();
     });
 
     function deepEqualTest(dirname) {
@@ -73,12 +75,18 @@ describe('i18npack', function() {
       deepEqualTest('empty');
     });
 
-    it('Missing langugage keys are not included', function() {
+    it('Missing language keys are not included', function() {
       deepEqualTest('missing-keys');
     });
 
-    it('Templates work in transaled strings', function() {
+    it('Templates work in translated strings', function() {
       deepEqualTest('template-and-translate');
+    });
+
+    it('Supports merging files at root', function () {
+      i18npackOptions.mergeFilesAtRoot = true;
+
+      deepEqualTest('merge-at-root');
     });
 
     it('Supports custom output file extension', function() {
@@ -101,6 +109,19 @@ describe('i18npack', function() {
         i18npack.generate(path.join(testDirName, '**/*.yml'), i18npackOptions);
       }, function(err) {
         return /Duplicate/.test(err);
+      });
+    });
+
+    it('Conflicting key names from multiple files should throw when mergeFilesAtRoot is true', function () {
+      var testDirName = testutil.buildTestDirPath('duplicate_keys_multiFiles', loadConfig);
+
+      i18npackOptions.languages = ['en'];
+      i18npackOptions.mergeFilesAtRoot = true;
+
+      assert.throws(function () {
+        i18npack.generate(path.join(testDirName, '**/*.yml'), i18npackOptions);
+      }, function (err) {
+        return /The key/.test(err);
       });
     });
   });
@@ -126,6 +147,8 @@ describe('parser', function() {
         strict: i18npack.settings.strict,
         customTypes: i18npack.settings.customTypes
       };
+
+      i18npack.reset();
     });
 
     function deepEqualTest(parser, data, filename, lang) {
@@ -375,6 +398,8 @@ describe('parser', function() {
         strict: i18npack.settings.strict,
         customTypes: i18npack.settings.customTypes
       };
+
+      i18npack.reset();
     });
 
     function deepEqualTest(parser, filename) {
