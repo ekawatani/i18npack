@@ -296,7 +296,7 @@ An object of key-value pairs containing custom YAML types. See [js-yaml](https:/
 Type: `boolean`
 Default: `false`
 
-If true, an error is thrown if the provided translations does not match the supported languages.
+If true, an error is thrown if the number of provided translations is less than the number of the supported languages.
 
 ### allowEmptyTranslations
 Type: `boolean`

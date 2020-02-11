@@ -89,6 +89,11 @@ describe('i18npack', function() {
       deepEqualTest('merge-at-root');
     });
 
+    it('Supports not matching case', function() {
+      i18npackOptions.languages = ['EN', 'Fr'];
+      deepEqualTest("not-matching-case");
+    });
+
     it('Supports custom output file extension', function() {
       var testDirName = testutil.buildTestDirPath('1_lang', loadConfig);
 
@@ -206,13 +211,14 @@ describe('parser', function() {
       });
     });
 
-    it('!t: Too many translations should not throw', function() {
-      var filename = 't-tooMany.yml';
-      var data = testutil.loadFile(filename, loadConfig);
+    it('!t: Too many translations should throw', function() {
+      var data = testutil.loadFile("t-tooMany.yml", loadConfig);
       var parser = new Parser(parserOptions);
 
       languages.forEach(function(lang) {
-        deepEqualTest(parser, data, filename, lang);
+        throwTest(parser, data, lang, function(err) {
+          return err instanceof SyntaxError && /Too many translation/.test(err);
+        });
       });
     });
 
@@ -282,14 +288,37 @@ describe('parser', function() {
       });
     });
 
-    it('!t: Unsupported language keys should throw', function() {
-      var filename = 't-langKey.yml';
+    it("!t: Supports languages options in any case", function() {
+      var filename = "t-langKey.yml";
       var data = testutil.loadFile(filename, loadConfig);
-
+      parserOptions.languages = ['eN', 'Fr'];
       var parser = new Parser(parserOptions);
 
       languages.forEach(function(lang) {
         deepEqualTest(parser, data, filename, lang);
+      });
+    });
+
+    it('!t: Language keys are case-insensitive', function () {
+      var filename = 't-langKey-caseInsensitive.yml';
+      var data = testutil.loadFile(filename, loadConfig);
+
+      var parser = new Parser(parserOptions);
+
+      languages.forEach(function (lang) {
+        deepEqualTest(parser, data, filename, lang);
+      });
+    });
+
+    it('!t: Unsupported language keys should throw', function() {
+      var data = testutil.loadFile("t-langKey-unsupported.yml", loadConfig);
+      parserOptions.strict = true;
+      var parser = new Parser(parserOptions);
+
+      languages.forEach(function(lang) {
+        throwTest(parser, data, lang, function(err) {
+          return err instanceof SyntaxError && /Unsupported language key "da/.test(err);
+        });
       });
     });
 
